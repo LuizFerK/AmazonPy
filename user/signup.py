@@ -1,7 +1,7 @@
-import user
+from user import user
 
 def call():
-  name = input("Digite seu nome: ")
+  name = input("\nDigite seu nome: ")
   email = input("Digite seu email: ")
   cpf = input("Digite seu cpf: ")
   password = input("Digite sua senha: ")
