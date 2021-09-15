@@ -6,4 +6,8 @@ def call():
   cpf = input("Digite seu cpf: ")
   password = input("Digite sua senha: ")
 
-  user.create(name, email, cpf, password)
+  newUser = user.create(name, email, cpf, password)
+
+  print(f"\nBem vindo(a) à AmazonPy, {newUser.name}!\n")
+
+  return newUser
