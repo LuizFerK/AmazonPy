@@ -14,12 +14,15 @@ def build(name, email, cpf, password):
   return user
 
 def create(name, email, cpf, password):
+  cpf = cpf.replace('.', '').replace('-', '')
   user = build(name, email, cpf, password)
   flag = ''
 
   with open('databases/users.csv','r') as file:
     for row in file:
       bdName, bdEmail, bdCpf, bdPassword = row.replace('\n', '').split(', ')
+
+      print(bdCpf, cpf)
 
       if email == bdEmail:
         flag = 'Email já cadastrado'

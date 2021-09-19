@@ -1,4 +1,5 @@
 from user import login, user
+from validators import userValidator
 
 def options():
   opt = input('Opções:\n\n1 - Tentar novamente\n2 - Entrar no sistema\n')
@@ -16,6 +17,12 @@ def call():
   email = input("Digite seu email: ")
   cpf = input("Digite seu cpf: ")
   password = input("Digite sua senha: ")
+
+  validation = userValidator.validate(cpf, email, password)
+
+  if validation != 0:
+    print(validation)
+    return call()
 
   res = user.create(name, email, cpf, password)
 
