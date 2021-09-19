@@ -1,4 +1,4 @@
-from user import login, user
+from users import login, user
 from validators import userValidator
 
 def options():

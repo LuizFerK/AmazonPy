@@ -1,4 +1,5 @@
-from user import login, signup, user
+from users import login, signup, user
+from products import purchase
 
 # To-do
 
@@ -8,17 +9,18 @@ from user import login, signup, user
 
 user = user.build('', '', '', '')
 
-print("Bem vindo(a) à AmazonPy!\n")
+print("Bem vindo(a) à AmazonPy!")
 
 def menu(user):
   if user.name != '':
-    opt = input("Escolha uma das opções abaixo para continuar:\n1 - Ver produtos\n2 - Ver carrinho\n3 - Pagar conta\n0 - Sair\n")
+    opt = input("\nEscolha uma das opções abaixo para continuar:\n1 - Ver produtos\n2 - Ver carrinho\n3 - Pagar conta\n0 - Sair\n")
   else:
-    opt = input("É novo por aqui? Escolha uma das opções abaixo (1 ou 2):\n1 - Sim. Realizar cadastro\n2 - Não. Entrar\n0 - Sair\n")
+    opt = input("\nÉ novo por aqui? Escolha uma das opções abaixo (1 ou 2):\n1 - Sim. Realizar cadastro\n2 - Não. Entrar\n0 - Sair\n")
 
   if user.name != '':
     if opt == '1':
-      print("comprar")
+      purchase.call()
+      menu(user)
     elif opt == '2':
       print("carrinho")
     elif opt == '0':
