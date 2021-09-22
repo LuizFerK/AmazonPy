@@ -1,11 +1,6 @@
 from users import login, signup, user
 from products import purchase
-
-# To-do
-
-# * Validações de email, cpf e senha
-# * Testes gerais
-# * Iniciar domínio de compras
+from carts import checkout
 
 user = user.build('', '', '', '')
 
@@ -19,10 +14,11 @@ def menu(user):
 
   if user.name != '':
     if opt == '1':
-      purchase.call()
+      purchase.call(user.cpf)
       menu(user)
     elif opt == '2':
-      print("carrinho")
+      checkout.call(user.cpf)
+      menu(user)
     elif opt == '0':
       return
     elif opt == '3':

@@ -1,16 +1,19 @@
 from products import product
+from carts import cart, checkout
 
-def call():
+def call(userCpf):
   def error():
     print("Por favor, digite valores válidos!")
-    return call()
+    return call(userCpf)
 
   def options():
-    final_opt = input("\nDeseja continuar comprando?\n1 - Sim\n2 - Não. Retornar ao menu principal\n")
+    final_opt = input("\nDeseja continuar comprando?\n1 - Sim\n2 - Não. Visualizar carrinho de compras\n3 - Não. Retornar ao menu principal\n")
 
     if final_opt == '1':
-      return call()
+      return call(userCpf)
     elif final_opt == '2':
+      return checkout.call(userCpf)
+    elif final_opt == '3':
       return
     else:
       print("Por favor, digite uma opção válida!")
@@ -34,7 +37,7 @@ def call():
     if productId < 1 or productId > 20 or quantity < 1:
       return error()
 
-    print("salvar")
+    cart.add(userCpf, productId, quantity)
     
     return options()
   except:
