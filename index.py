@@ -8,7 +8,7 @@ print("Bem vindo(a) à AmazonPy!")
 
 def menu(user):
   if user.name != '':
-    opt = input("\nEscolha uma das opções abaixo para continuar:\n1 - Ver produtos\n2 - Ver carrinho\n3 - Pagar conta\n0 - Sair\n")
+    opt = input("\nEscolha uma das opções abaixo para continuar:\n1 - Ver produtos\n2 - Ver carrinho\n3 - Adicionar saldo\n0 - Sair\n")
   else:
     opt = input("\nÉ novo por aqui? Escolha uma das opções abaixo (1 ou 2):\n1 - Sim. Realizar cadastro\n2 - Não. Entrar\n0 - Sair\n")
 
@@ -22,7 +22,7 @@ def menu(user):
     elif opt == '0':
       return
     elif opt == '3':
-      print("conta")
+      print("balance")
     else:
       print("Por favor, digite uma opção válida!")
       menu(user)

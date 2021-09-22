@@ -32,3 +32,16 @@ def getAllByUserCpf(userCpf):
         items.append(build(userCpf, productId, quantity))
 
   return items
+
+def deleteAllByUserCpf(userCpf):
+  items = []
+
+  with open('databases/carts.csv','r') as file:
+    for row in file:
+      bdUserCpf, productId, quantity = row.replace('\n', '').split(', ')
+
+      if bdUserCpf != userCpf:
+        items.append(f"{bdUserCpf}, {productId}, {quantity}\n")
+
+  with open('databases/carts.csv','w') as file:
+    file.write(''.join(items))
