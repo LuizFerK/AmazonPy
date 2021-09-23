@@ -2,7 +2,7 @@ from users import login, signup, user
 from products import purchase
 from carts import checkout
 
-user = user.build('', '', '', '')
+user = user.build('', '', '', '', 0.0)
 
 print("Bem vindo(a) à AmazonPy!")
 

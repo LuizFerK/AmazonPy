@@ -24,7 +24,7 @@ def call():
     print(validation)
     return call()
 
-  res = user.create(name, email, cpf, password)
+  res = user.create(name, email, cpf, password, 0.0)
 
   if isinstance(res, str):
     print(res)

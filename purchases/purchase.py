@@ -1,8 +1,9 @@
+from users import user
 from carts import cart
 
 def checkout(userCpf, items, finalValue):
   def options():
-    opt = input("Seu saldo é insuficiente para finalizar a compra. Deseja adicionar mais saldo a sua conta?\n1 - Sim. Adicionar saldo\n2 - Não. Retornar ao menu principal")
+    opt = input("\nSeu saldo é insuficiente para finalizar a compra. Deseja adicionar mais saldo a sua conta?\n1 - Sim. Adicionar saldo\n2 - Não. Retornar ao menu principal\n")
     
     if opt == '1':
       return print('balance')
@@ -31,20 +32,19 @@ def checkout(userCpf, items, finalValue):
     else:
       return True
 
+  purchaseUser = user.getByCpf(userCpf)
+  print(f"\nO valor total da sua compra é de R${finalValue:.2f} e seu saldo atual é de R${purchaseUser.balance:.2f}")
 
-  balance = 1200.00
-  password = 'asd123'
-  print(f"\nO valor total da sua compra é de R${finalValue:.2f} e seu saldo atual é de R${balance:.2f}")
-
-  if balance < finalValue:
+  if purchaseUser.balance < finalValue:
     return options()
 
-  if comparePasswords(password):
+  if comparePasswords(purchaseUser.password):
     with open('databases/purchases.csv','a') as fs:
       for i in items:
         fs.write(f"{userCpf}, {i.productId}, {i.quantity}\n")
 
     cart.deleteAllByUserCpf(userCpf)
+    user.updateUserBalance(userCpf, purchaseUser.balance - finalValue)
 
     print("\nCompra finalizada com sucesso. Obrigado(a) por comprar na AmazonPy!")
 
