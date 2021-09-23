@@ -1,4 +1,4 @@
-from users import login, signup, user
+from users import login, signup, user, addBalance
 from products import purchase
 from carts import checkout
 
@@ -22,7 +22,8 @@ def menu(user):
     elif opt == '0':
       return
     elif opt == '3':
-      print("balance")
+      addBalance.call(user.cpf)
+      menu(user)
     else:
       print("Por favor, digite uma opção válida!")
       menu(user)

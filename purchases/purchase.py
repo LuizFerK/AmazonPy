@@ -1,4 +1,4 @@
-from users import user
+from users import user, addBalance
 from carts import cart
 
 def checkout(userCpf, items, finalValue):
@@ -6,7 +6,7 @@ def checkout(userCpf, items, finalValue):
     opt = input("\nSeu saldo é insuficiente para finalizar a compra. Deseja adicionar mais saldo a sua conta?\n1 - Sim. Adicionar saldo\n2 - Não. Retornar ao menu principal\n")
     
     if opt == '1':
-      return print('balance')
+      return addBalance.call(userCpf)
     elif opt == '2':
       return
     else:
