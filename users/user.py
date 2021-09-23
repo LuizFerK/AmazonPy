@@ -5,6 +5,7 @@ class User:
   password = ''
   balance = 0.0
 
+# Builda um usuário
 def build(name, email, cpf, password, balance):
   user = User()
   user.name = name
@@ -15,6 +16,7 @@ def build(name, email, cpf, password, balance):
 
   return user
 
+# Salva um novo usuário
 def create(name, email, cpf, password, balance):
   cpf = cpf.replace('.', '').replace('-', '')
   user = build(name, email, cpf, password, balance)
@@ -26,6 +28,7 @@ def create(name, email, cpf, password, balance):
 
       print(bdCpf, cpf)
 
+      # Verifica se o usuário já existe
       if email == bdEmail:
         flag = 'Email já cadastrado'
       elif cpf == bdCpf:
@@ -41,6 +44,7 @@ def create(name, email, cpf, password, balance):
   else:
     return flag
 
+# Retorna um usuário baseado em um CPF
 def getByCpf(userCpf):
   matchUser = build('', '', '', '', 0.0)
 
@@ -54,6 +58,7 @@ def getByCpf(userCpf):
   
   return matchUser
 
+# Atualiza o saldo de um usuário
 def updateUserBalance(userCpf, newBalance):
   users = []
 

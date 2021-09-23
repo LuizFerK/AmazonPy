@@ -3,6 +3,7 @@ class Product:
   name = ''
   value = 0.0
 
+# Builda um produto
 def build(id, name, value):
   product = Product()
   product.id = id
@@ -11,6 +12,7 @@ def build(id, name, value):
 
   return product
 
+# Retorna todos os produtos salvos
 def getAll():
   products = []
 

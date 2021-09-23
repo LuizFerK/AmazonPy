@@ -1,5 +1,6 @@
 import re
 
+# Valida todas as informações de um novo cadastro
 def validate(cpf, email, password):
   if not bool(re.match('[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}', cpf)):
     return 'O CPF informado está mal formatado'

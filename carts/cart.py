@@ -3,6 +3,7 @@ class Cart:
   productId = ''
   quantity = 0
 
+# Builda um item do carrinho de compras
 def build(userCpf, productId, quantity):
   cart = Cart()
   cart.userCpf = userCpf
@@ -11,6 +12,7 @@ def build(userCpf, productId, quantity):
 
   return cart
 
+# Adiciona um novo item ao carrinho de compras
 def add(userCpf, productId, quantity):
   item = build(userCpf, productId, quantity)
 
@@ -21,6 +23,7 @@ def add(userCpf, productId, quantity):
 
   return item
 
+# Retorna o carrinho de compras de um usuário com base em seu CPF
 def getAllByUserCpf(userCpf):
   items = []
 
@@ -33,6 +36,7 @@ def getAllByUserCpf(userCpf):
 
   return items
 
+# Remove todos os itens do carrinho de um usuário (usado ao final de uma compra)
 def deleteAllByUserCpf(userCpf):
   items = []
 
