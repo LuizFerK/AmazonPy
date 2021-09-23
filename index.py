@@ -1,6 +1,7 @@
 from users import login, signup, user, addBalance
 from products import purchase
 from carts import checkout
+from purchases import purchaseList
 
 user = user.build('', '', '', '', 0.0)
 
@@ -8,20 +9,23 @@ print("Bem vindo(a) à AmazonPy!")
 
 def menu(user):
   if user.name != '':
-    opt = input("\nEscolha uma das opções abaixo para continuar:\n1 - Ver produtos\n2 - Ver carrinho\n3 - Adicionar saldo\n0 - Sair\n")
+    opt = input("\nEscolha uma das opções abaixo para continuar:\n1 - Ver produtos\n2 - Ver carrinho\n3 - Ver compras\n4 - Adicionar saldo\n0 - Sair\n")
   else:
     opt = input("\nÉ novo por aqui? Escolha uma das opções abaixo (1 ou 2):\n1 - Sim. Realizar cadastro\n2 - Não. Entrar\n0 - Sair\n")
 
   if user.name != '':
-    if opt == '1':
+    if opt == '0':
+      return
+    elif opt == '1':
       purchase.call(user.cpf)
       menu(user)
     elif opt == '2':
       checkout.call(user.cpf)
       menu(user)
-    elif opt == '0':
-      return
     elif opt == '3':
+      purchaseList.call(user.cpf)
+      menu(user)
+    elif opt == '4':
       addBalance.call(user.cpf)
       menu(user)
     else:
